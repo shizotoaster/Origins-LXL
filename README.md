@@ -2,6 +2,16 @@
 Origins mod for LiteXLoader
 
 
+# How to use?
+Just put "plugins" and "origins" folders into your BDS root folder. [LiteXLoader](https://github.com/LiteLDev/LiteXLoader "LiteXLoader") is required!
+# What is done
+- [x] Form UI with all origins from original mod
+- [x] Writing player's origin to json file 
+- [ ] Configuration file
+- [ ] Origins' abilities
+- [ ] Language configs
+- [ ] Ability to add custom origins using json
+- [ ] Optimize code
 # Why?
 Because Origins+ add-on lowers your TPS and affects player.json
 # Is it a full copy of Origins mod?
