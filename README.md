@@ -11,7 +11,7 @@ Just put "plugins" and "origins" folders into your BDS root folder. [LiteXLoader
 - [ ] Origins' abilities
 - [ ] Language configs
 - [ ] Ability to add custom origins using json
-- [ ] Optimize code
+- [ ] Code cleanup
 # Why?
 Because Origins+ add-on lowers your TPS and affects player.json
 # Is it a full copy of Origins mod?
@@ -20,5 +20,5 @@ No, it is impossible to port all of the features from mod to server-side script
 Maybe, if it has as much features as LXL and supports JS
 # Is it compatible with add-on-name?
 It should be so, but I can't test it with any add-on existing
-# Can I download it right now?
-Sadly, no. Script's development has just started, it's too early to show you anything
+# Is the script ready to use?
+Sadly, no. Script's development has just started, but you can contribute
