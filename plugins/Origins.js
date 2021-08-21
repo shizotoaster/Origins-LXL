@@ -8,7 +8,7 @@
 //
 //Origins - script that mimics Origins mod
 //Made by qIMIXERIp vk.com/svtlng
-//Special thanks to vk.com/pvenom vk.com/olegjdk
+//Special thanks to vk.com/pvenom and vk.com/olegjdk
 
 //config:
 //...
@@ -43,7 +43,7 @@ let label = [
     "§2+§rJump boost while running\n§2+§rNo fall damage\n§2+§rScares creepers away\n§2+§rNight vision\n§4-§rHas only 9 hearts\n§4-§rCan't mine rock if there're more than 2 of it nearby"
 ]
 
-// запуск сервера (проверяем есть ли файл хранения, если нет тут же создаем)
+// Checking if players.json exist
 mc.listen('onServerStarted', function() {
     colorLog('green', 'Origins script loaded.')
     let playerbase = file.readFrom('origins/players.json')
@@ -55,16 +55,9 @@ mc.listen('onServerStarted', function() {
     }
 })
 
-// обработка входа игрока
+// Getting or setting player's origin
 mc.listen('onJoin', function(player) {
-
-    let originJSON = file.readFrom('origins/players.json')
-    let originObject = data.parseJson(originJSON)
-
-    if (player.name in originObject) {
-        logger.log("Player " + player.realName + " has origin " + originObject[player.name])
-        player.sendText("Your origin is " + originObject[player.realName], 0)
-    } else {
+    function _mainForm(){
         player.sendForm(_main, function(plr, data) {
             let cf = mc.newCustomForm()
             cf.setTitle(originTags[data])
@@ -82,4 +75,39 @@ mc.listen('onJoin', function(player) {
 
         })
     }
+    let originJSON = file.readFrom('origins/players.json')
+    let originObject = data.parseJson(originJSON)
+
+    if (player.name in originObject) {
+        logger.log("Player " + player.realName + " has origin " + originObject[player.realName])
+        player.sendText("Your origin is " + originObject[player.realName], 0)
+    } else {
+        _mainForm()
+    }
+})
+
+// So, this is origins' abilities code part
+
+//Changing amount of health
+mc.listen('onJoin', function(player) {
+    let originJSON = file.readFrom('origins/players.json')
+    let originObject = data.parseJson(originJSON)
+    let nbt = player.getNbt()
+    switch (originObject[player.realName]){
+            case 'Feline':
+                nbt.getTag('Attributes').getTag(1).getTag('DefaultMax').set(18)
+                nbt.getTag('Attributes').getTag(1).getTag('Max').set(18)
+                player.setNbt(nbt)
+            break
+            case 'Arachnid':
+                nbt.getTag('Attributes').getTag(1).getTag('DefaultMax').set(14)
+                nbt.getTag('Attributes').getTag(1).getTag('Max').set(14)
+                player.setNbt(nbt)
+            break
+            case 'Phantom':
+                nbt.getTag('Attributes').getTag(1).getTag('DefaultMax').set(14)
+                nbt.getTag('Attributes').getTag(1).getTag('Max').set(14)
+                player.setNbt(nbt)
+            break
+        }
 })
