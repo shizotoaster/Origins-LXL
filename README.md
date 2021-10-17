@@ -1,3 +1,5 @@
+# This repo is outdated!! Wisit https://github.com/Development-studio/Origins-LXL (This is the rewrite coming soon)
+
 # Origins-LXL
 Origins mod for LiteXLoader
 
